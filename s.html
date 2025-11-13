@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thirupugal S - AI/ML Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #7c3aed;
+            --accent: #06b6d4;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --border: #e5e7eb;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        .navbar {
+            background: rgba(255,255,255,0.98) !important;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--primary) !important;
+            letter-spacing: -0.5px;
+        }
+        .nav-link {
+            font-weight: 600;
+            color: var(--dark) !important;
+            margin: 0 12px;
+            position: relative;
+            padding: 8px 0 !important;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary) !important;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        .hero {
+            padding: 140px 0 100px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="200" cy="200" r="80" fill="%23ffffff" opacity="0.05"/><circle cx="800" cy="300" r="60" fill="%23ffffff" opacity="0.08"/><circle cx="400" cy="700" r="100" fill="%23ffffff" opacity="0.06"/></svg>');
+            animation: float 20s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero .lead {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        .hero .btn {
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .hero .btn-primary {
+            background: white;
+            color: var(--primary);
+            border: none;
+        }
+        .hero .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        .hero .btn-outline-light {
+            border-color: rgba(255,255,255,0.6);
+            background: transparent;
+        }
+        .hero .btn-outline-light:hover {
+            background: white;
+            color: var(--primary);
+        }
+        .section {
+            padding: 100px 0;
+        }
+        .section.bg-light {
+            background: #f1f5f9;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-title h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 5px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .about-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            height: 100%;
+            border: 1px solid var(--border);
+        }
+        .about-card h3 {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        .about-card p.lead {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+        .skill-category {
+            margin-bottom: 35px;
+        }
+        .skill-category h4 {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 18px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+        .skill-category h4 i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        .skill-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+            color: var(--primary);
+            padding: 10px 18px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 6px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.15);
+            border: 1px solid rgba(79, 70, 229, 0.2);
+        }
+        .skill-badge:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);
+            background: var(--primary);
+            color: white;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 23px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            padding-left: 40px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 8px;
+            width: 28px;
+            height: 28px;
+            background: white;
+            border: 5px solid var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2);
+            z-index: 1;
+        }
+        .timeline-card {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+            transition: all 0.4s ease;
+        }
+        .timeline-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        .timeline-card h5 {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+        .timeline-card .date {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(6, 182, 212, 0.1);
+            border-radius: 20px;
+        }
+        .timeline-card .company {
+            color: var(--gray);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 18px;
+        }
+        .timeline-card ul {
+            padding-left: 0;
+            list-style: none;
+        }
+        .timeline-card ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        .timeline-card ul li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--success);
+        }
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+            border: 1px solid var(--border);
+        }
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.18);
+        }
+        .project-img {
+            height: 240px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            position: relative;
+            overflow: hidden;
+        }
+        .project-img::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 10px, transparent 10px, transparent 20px);
+            animation: shimmer 3s linear infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 0 0; }
+            100% { background-position: 40px 40px; }
+        }
+        .project-img i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            color: rgba(255,255,255,0.3);
+        }
+        .project-body {
+            padding: 30px;
+        }
+        .project-title {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+        .project-meta {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        .project-body p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        .tech-tags {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tech-tag {
+            background: #eef2ff;
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #c7d2fe;
+        }
+        .education-card {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        .education-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        .education-card .icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 1.8rem;
+        }
+        .education-card .degree {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+        .education-card .cgpa {
+            background: var(--success);
+            color: white;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-top: 15px;
+        }
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 40px;
+        }
+        footer h5 {
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        .social-links a {
+            display: inline-flex;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            margin: 0 8px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        }
+        .download-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(79,70,229,0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+        .download-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(79,70,229,0.5);
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.9);
+            color: var(--primary);
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .contact-form {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+        }
+        .form-control {
+            border-radius: 12px;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+        }
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.2rem rgba(79,70,229,0.15);
+        }
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3.5rem; }
+            .hero .lead { font-size: 1.2rem; }
+            .section-title h2 { font-size: 2.3rem; }
+        }
+        @media (max-width: 768px) {
+            .hero { padding: 100px 0 80px; }
+            .hero h1 { font-size: 2.8rem; }
+            .section { padding: 80px 0; }
+            .timeline { padding-left: 30px; }
+            .timeline-item { padding-left: 20px; }
+            .timeline-item::before { left: -8px; width: 20px; height: 20px; }
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#home">Thirupugal S</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="container">
+        <div data-aos="fade-up">
+            <h1>THIRUPUGAL S</h1>
+            <p class="lead">Data Science & AI/ML Engineer</p>
+            <p>Building intelligent systems with Generative AI, Computer Vision, and NLP</p>
+            <div class="mt-4">
+                <a href="mailto:thirupugals2003@gmail.com" class="btn btn-primary btn-lg">
+                    <i class="fas fa-envelope"></i> Hire Me
+                </a>
+                <a href="#projects" class="btn btn-outline-light btn-lg">
+                    <i class="fas fa-briefcase"></i> View Projects
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About & Skills -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="about-card">
+                    <h3>Professional Summary</h3>
+                    <p class="lead">Data Science professional with expertise in machine learning, deep learning, and generative AI. Proficient in Python, SQL, and Power BI, with hands-on experience in AI-driven solutions such as chatbots, speech emotion recognition, and quantitative investment strategies. Skilled in leveraging YOLOv5, LLaMA2, and VGG-16 for innovative applications. Strong analytical and problem-solving skills demonstrated through real-world AI/ML projects and clinical data analytics. Eager to drive cutting-edge technology solutions.</p>
+                    <div class="mt-4">
+                        <a href="#projects" class="btn btn-primary me-2">View Projects</a>
+                        <a href="#contact" class="btn btn-outline-primary">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <h3 class="mb-4">Technical Skills</h3>
+                <div class="skill-category">
+                    <h4><i class="fas fa-code"></i> Programming Languages</h4>
+                    <div>
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">SQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4><i class="fas fa-cogs"></i> Python Libraries</h4>
+                    <div>
+                        <span class="skill-badge">NumPy</span>
+                        <span class="skill-badge">Pandas</span>
+                        <span class="skill-badge">scikit-learn</span>
+                        <span class="skill-badge">Sentence Transformers</span>
+                        <span class="skill-badge">VADER-Sentiment</span>
+                        <span class="skill-badge">Spacy</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4><i class="fas fa-brain"></i> Technologies</h4>
+                    <div>
+                        <span class="skill-badge">Machine Learning</span>
+                        <span class="skill-badge">Deep Learning</span>
+                        <span class="skill-badge">NLP</span>
+                        <span class="skill-badge">RAG</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4><i class="fas fa-robot"></i> AI Technologies</h4>
+                    <div>
+                        <span class="skill-badge">Generative AI</span>
+                        <span class="skill-badge">LLaMA2</span>
+                        <span class="skill-badge">Ollama</span>
+                        <span class="skill-badge">Chatbots</span>
+                        <span class="skill-badge">BERT</span>
+                        <span class="skill-badge">LLM</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4><i class="fas fa-eye"></i> Computer Vision</h4>
+                    <div>
+                        <span class="skill-badge">OpenCV</span>
+                        <span class="skill-badge">PyTorch</span>
+                        <span class="skill-badge">YOLOv5</span>
+                        <span class="skill-badge">Faster R-CNN</span>
+                        <span class="skill-badge">VGG-16</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4><i class="fas fa-chart-bar"></i> Data Visualization</h4>
+                    <div>
+                        <span class="skill-badge">Power BI</span>
+                        <span class="skill-badge">Plotly</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4><i class="fas fa-tools"></i> Other Tools</h4>
+                    <div>
+                        <span class="skill-badge">Regular Expressions</span>
+                        <span class="skill-badge">TF-IDF</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4><i class="fas fa-project-diagram"></i> ML Models</h4>
+                    <div>
+                        <span class="skill-badge">Linear Regression</span>
+                        <span class="skill-badge">Logistic Regression</span>
+                        <span class="skill-badge">PCA</span>
+                        <span class="skill-badge">Random Forest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Timeline -->
+<section class="section bg-light" id="experience">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Professional Experience</h2>
+            <p>Real-world impact through AI/ML innovation</p>
+        </div>
+        <div class="timeline" data-aos="fade-up" data-aos-delay="100">
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <h5>Data Annotator</h5>
+                    <div class="date">Aug 2025 – Present</div>
+                    <div class="company">Intellect Design Arena (Infocareer Private Limited), Chennai</div>
+                    <ul>
+                        <li>Performed PDF and image annotation for AI model training, creating precise bounding boxes and labels for object detection and text extraction tasks, supporting the AI team.</li>
+                        <li>Executed data normalization and preprocessing to ensure high-quality, consistent datasets for machine learning, enhancing model performance.</li>
+                        <li>Collaborated with data science and AI teams to validate annotations, improving model accuracy for document processing and computer vision applications.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <h5>AI & ML Intern</h5>
+                    <div class="date">Jan 2025 – May 2025</div>
+                    <div class="company">Vdart, Thiruchirappalli</div>
+                    <p class="mb-3"><strong>Smart Interview System for Recruitment and Skill Assessment</strong> | <a href="https://github.com/THIRUPUGAL-2003/Ai-project" class="text-primary" target="_blank">GitHub</a></p>
+                    <ul>
+                        <li>Developed an AI-driven interview system, automating aptitude, Q&A, and HR levels with Google Meet integration via Pandas/smtplib.</li>
+                        <li>Implemented YOLOv5 for person detection and Faster R-CNN for mobile detection using PyTorch/OpenCV for real-time proctoring.</li>
+                        <li>Utilized LLaMA2 (via Ollama) for dynamic question generation; evaluated answers with TF-IDF, Sentence Transformers, and VADER Sentiment analysis.</li>
+                        <li>Created a Plotly dashboard for result filtering, visualization, and billing, Excel downloads with secure admin/candidate login, saving 90% of money, time, and manpower.</li>
+                        <li>Optimized detection with asyncio for CPU/GPU efficiency; stored results in Excel/JSON.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects -->
+<section class="section" id="projects">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Projects</h2>
+            <p>Innovative AI solutions with real-world impact</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="project-body">
+                        <h5 class="project-title">PDF Chatbot Using Llama 3 and RAG Model</h5>
+                        <p class="project-meta">Aug 2024 – Dec 2024</p>
+                        <p>Interactive document Q&A system using Retrieval-Augmented Generation with Llama 3.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Llama 3</span>
+                            <span class="tech-tag">RAG</span>
+                            <span class="tech-tag">PyPDFLoader</span>
+                            <span class="tech-tag">Vector DB</span>
+                            <span class="tech-tag">Streamlit</span>
+                        </div>
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2"><strong>PDF Upload & Processing:</strong> Enables seamless uploading of PDF documents by users. Utilizes PyPDFLoader for precise extraction and analysis of document content.</li>
+                            <li class="mb-2"><strong>RAG with Llama 3:</strong> Employs Retrieval-Augmented Generation using the Llama 3 model. Generates accurate, context-aware responses derived from uploaded document data.</li>
+                            <li class="mb-2"><strong>Vector Embeddings:</strong> Employs advanced embeddings for efficient document indexing. Facilitates rapid and relevant information retrieval to enhance response quality.</li>
+                            <li><strong>Interactive Chat Interface:</strong> Features an intuitive web interface supporting dynamic user conversations with real-time chat history visualization.</li>
+                        </ul>
+                        <a href="https://github.com/THIRUPUGAL-2003/Ai-project/blob/main/RAG.py" class="btn btn-outline-primary mt-3" target="_blank">View Code →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="project-body">
+                        <h5 class="project-title">Advanced Speech Emotion Recognition</h5>
+                        <p class="project-meta">Dec 2023 – Aug 2024</p>
+                        <p>Hybrid deep learning model combining MFCC and Mel-spectrogram features for emotion detection.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">MFCC</span>
+                            <span class="tech-tag">Mel-spectrogram</span>
+                            <span class="tech-tag">CNN</span>
+                            <span class="tech-tag">VGG-16</span>
+                            <span class="tech-tag">PCA</span>
+                        </div>
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2"><strong>Enhanced SER:</strong> Integrating MFCC numerical features and Mel-spectrogram images.</li>
+                            <li class="mb-2"><strong>Hybrid Model:</strong> Applied PCA and trained CNN on numerical features; used pretrained VGG for spectrogram image analysis.</li>
+                            <li class="mb-2"><strong>Performance:</strong> Built a hybrid model with improved emotion recognition accuracy on TESS dataset.</li>
+                            <li><strong>Applications:</strong> Virtual assistants, mental health monitoring, interactive AI systems.</li>
+                        </ul>
+                        <a href="https://github.com/THIRUPUGAL-2003/ML-DL-Projects" class="btn btn-outline-primary mt-3" target="_blank">GitHub Repo →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Education</h2>
+            <p>Strong foundation in Data Science and Mathematics</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                <div class="education-card">
+                    <div class="icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h5 class="degree">M.Sc Data Science</h5>
+                    <p>SASTRA Deemed to be University</p>
+                    <p class="text-muted">Aug 2023 – May 2025</p>
+                    <span class="cgpa">CGPA 8.3/10</span>
+                </div>
+            </div>
+            <div class="col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                <div class="education-card">
+                    <div class="icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h5 class="degree">B.Sc Mathematics</h5>
+                    <p>A.V.V.M Sri Pushpam College</p>
+                    <p class="text-muted">Aug 2020 – May 2023</p>
+                    <span class="cgpa">CGPA 8.72/10</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Certifications -->
+<section class="section">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Workshops & Certifications</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+                <div class="p-4 bg-white rounded-3 shadow-sm border">
+                    <h5 class="mb-3">Clinical Data Analytics Workshop, Clinosol Research</h5>
+                    <p>Gained hands-on experience in clinical data preprocessing, visualizations, and statistical analysis with industry-standard tools.</p>
+                    <a href="https://clinosol.com/workshops/clinical-data-analytics" class="btn btn-outline-primary btn-sm mt-2" target="_blank">View Certificate</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form -->
+<section class="section bg-light" id="contact">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Contact Me</h2>
+            <p>Let's build something amazing together</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <h5>Thirupugal S</h5>
+                <p class="text-muted">Data Science & AI/ML Professional</p>
+                <p class="small text-muted">1/52 KD Street, Vadakal, Sakkarasamandham, Thanjavur</p>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <h5>Quick Links</h5>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <h5>Connect</h5>
+                <p class="mb-1"><i class="fas fa-envelope me-2"></i>thirupugals2003@gmail.com</p>
+                <p class="mb-3"><i class="fas fa-phone me-2"></i>+91 9080578529</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/thirupugals" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/THIRUPUGAL-2003" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr class="bg-white opacity-10">
+        <p class="text-center mb-0 small">© 2025 Thirupugal S. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Floating Buttons -->
+<a href="RESUMES.pdf" download class="download-btn" title="Download Resume">
+    <i class="fas fa-download fa-lg"></i>
+</a>
+<a href="#home" class="back-to-top" id="backToTop" title="Back to Top">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true, offset: 100 });
+    
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+        
+        const backToTop = document.getElementById('backToTop');
+        backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+            }
+        });
+    });
+    
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you! Your message has been sent.');
+        this.reset();
+    });
+</script>
+</body>
+</html>
