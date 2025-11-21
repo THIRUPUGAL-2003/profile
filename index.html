@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -113,6 +114,12 @@
             margin: 0 10px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .hero .btn i {
+            font-size: 1.2rem;
         }
         .hero .btn-primary {
             background: white;
@@ -171,22 +178,38 @@
             border-radius: 20px;
             padding: 40px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-            height: 100%;
             border: 1px solid var(--border);
-        }
-        .about-card h3 {
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            text-align: center;
         }
         .about-card p.lead {
             font-size: 1.2rem;
             color: var(--dark);
             margin-bottom: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .about-card .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            font-size: 1rem;
+        }
+        .about-card .btn i {
+            font-size: 1.1rem;
+        }
+        .skill-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+            text-align: center;
         }
         .skill-category {
             margin-bottom: 35px;
+            text-align: center;
         }
         .skill-category h4 {
             font-weight: 700;
@@ -195,6 +218,7 @@
             font-size: 1.2rem;
             display: flex;
             align-items: center;
+            justify-content: center;
         }
         .skill-category h4 i {
             margin-right: 10px;
@@ -365,6 +389,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
+            justify-content: center;
         }
         .tech-tag {
             background: #eef2ff;
@@ -426,17 +451,6 @@
             margin-bottom: 20px;
             color: white;
         }
-        .footer-links a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 12px;
-            transition: all 0.3s ease;
-        }
-        .footer-links a:hover {
-            color: white;
-            padding-left: 5px;
-        }
         .social-links a {
             display: inline-flex;
             width: 50px;
@@ -449,6 +463,7 @@
             margin: 0 8px;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
+            font-size: 1.3rem;
         }
         .social-links a:hover {
             background: var(--primary);
@@ -470,6 +485,7 @@
             box-shadow: 0 10px 30px rgba(79,70,229,0.4);
             z-index: 999;
             transition: all 0.3s ease;
+            font-size: 1.5rem;
         }
         .download-btn:hover {
             transform: scale(1.1);
@@ -490,6 +506,7 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             z-index: 999;
             transition: all 0.3s ease;
+            font-size: 1.3rem;
         }
         .back-to-top:hover {
             transform: translateY(-5px);
@@ -554,101 +571,139 @@
             <p>Building intelligent systems with Generative AI, Computer Vision, and NLP</p>
             <div class="mt-4">
                 <a href="mailto:thirupugals2003@gmail.com" class="btn btn-primary btn-lg">
-                    <i class="fas fa-envelope"></i> Hire Me
+                    <i class="fas fa-briefcase"></i> Hire Me
                 </a>
                 <a href="#projects" class="btn btn-outline-light btn-lg">
-                    <i class="fas fa-briefcase"></i> View Projects
+                    <i class="fas fa-folder-open"></i> View Projects
                 </a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- About & Skills -->
+<!-- Professional Summary Section -->
 <section class="section">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6" data-aos="fade-right">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Professional Summary</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
                 <div class="about-card">
-                    <h3>Professional Summary</h3>
-                    <p class="lead">Data Science professional with expertise in machine learning, deep learning, and generative AI. Proficient in Python, SQL, and Power BI, with hands-on experience in AI-driven solutions such as chatbots, speech emotion recognition, and quantitative investment strategies. Skilled in leveraging YOLOv5, LLaMA2, and VGG-16 for innovative applications. Strong analytical and problem-solving skills demonstrated through real-world AI/ML projects and clinical data analytics. Eager to drive cutting-edge technology solutions.</p>
+                    <p class="lead">Data Science professional with 5 months of hands-on experience as an AI/ML Intern and currently working as a Data Annotation Specialist. Expertise in machine learning, deep learning, and generative AI. Proficient in Python, SQL, and Power BI, with proven experience in AI-driven solutions including chatbots, speech emotion recognition, and quantitative investment strategies. Skilled in leveraging YOLOv5, LLaMA2, and VGG-16 for innovative applications. Strong analytical and problem-solving skills demonstrated through real-world AI/ML projects and clinical data analytics. Eager to drive cutting-edge technology solutions.</p>
                     <div class="mt-4">
-                        <a href="#projects" class="btn btn-primary me-2">View Projects</a>
-                        <a href="#contact" class="btn btn-outline-primary">Get in Touch</a>
+                        <a href="#projects" class="btn btn-primary me-2">
+                            <i class="fas fa-folder-open"></i> View Projects
+                        </a>
+                        <a href="#contact" class="btn btn-outline-primary">
+                            <i class="fas fa-envelope"></i> Get in Touch
+                        </a>
+                    </div>
+
+                    <!-- Animated Fill Below Summary -->
+                    <div class="mt-5" data-aos="fade-up" data-aos-delay="200">
+                        <div class="d-flex justify-content-center gap-4 mb-4">
+                            <i class="fas fa-brain fa-3x text-primary animate__animated animate__pulse animate__infinite"></i>
+                            <i class="fas fa-robot fa-3x text-secondary animate__animated animate__pulse animate__infinite" style="animation-delay:0.3s"></i>
+                            <i class="fas fa-chart-line fa-3x text-success animate__animated animate__pulse animate__infinite" style="animation-delay:0.6s"></i>
+                        </div>
+                        <div class="position-relative">
+                            <svg height="60" class="w-100">
+                                <path d="M0,30 Q250,0 500,30 T1000,30" stroke="url(#gradient)" stroke-width="3" fill="none"/>
+                                <defs>
+                                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%">
+                                        <stop offset="0%" stop-color="#4f46e5"/>
+                                        <stop offset="100%" stop-color="#7c3aed"/>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6" data-aos="fade-left">
-                <h3 class="mb-4">Technical Skills</h3>
-                <div class="skill-category">
-                    <h4><i class="fas fa-code"></i> Programming Languages</h4>
-                    <div>
-                        <span class="skill-badge">Python</span>
-                        <span class="skill-badge">SQL</span>
+        </div>
+    </div>
+</section>
+
+<!-- Technical Skills Section -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Technical Skills</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+                <div class="skill-card">
+                    <div class="skill-category">
+                        <h4>Programming Languages</h4>
+                        <div>
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">SQL</span>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-category">
-                    <h4><i class="fas fa-cogs"></i> Python Libraries</h4>
-                    <div>
-                        <span class="skill-badge">NumPy</span>
-                        <span class="skill-badge">Pandas</span>
-                        <span class="skill-badge">scikit-learn</span>
-                        <span class="skill-badge">Sentence Transformers</span>
-                        <span class="skill-badge">VADER-Sentiment</span>
-                        <span class="skill-badge">Spacy</span>
+                    <div class="skill-category">
+                        <h4>Python Libraries</h4>
+                        <div>
+                            <span class="skill-badge">NumPy</span>
+                            <span class="skill-badge">Pandas</span>
+                            <span class="skill-badge">scikit-learn</span>
+                            <span class="skill-badge">Sentence Transformers</span>
+                            <span class="skill-badge">VADER-Sentiment</span>
+                            <span class="skill-badge">Spacy</span>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-category">
-                    <h4><i class="fas fa-brain"></i> Technologies</h4>
-                    <div>
-                        <span class="skill-badge">Machine Learning</span>
-                        <span class="skill-badge">Deep Learning</span>
-                        <span class="skill-badge">NLP</span>
-                        <span class="skill-badge">RAG</span>
+                    <div class="skill-category">
+                        <h4>Technologies</h4>
+                        <div>
+                            <span class="skill-badge">Machine Learning</span>
+                            <span class="skill-badge">Deep Learning</span>
+                            <span class="skill-badge">NLP</span>
+                            <span class="skill-badge">RAG</span>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-category">
-                    <h4><i class="fas fa-robot"></i> AI Technologies</h4>
-                    <div>
-                        <span class="skill-badge">Generative AI</span>
-                        <span class="skill-badge">LLaMA2</span>
-                        <span class="skill-badge">Ollama</span>
-                        <span class="skill-badge">Chatbots</span>
-                        <span class="skill-badge">BERT</span>
-                        <span class="skill-badge">LLM</span>
+                    <div class="skill-category">
+                        <h4>AI Technologies</h4>
+                        <div>
+                            <span class="skill-badge">Generative AI</span>
+                            <span class="skill-badge">LLaMA2</span>
+                            <span class="skill-badge">Ollama</span>
+                            <span class="skill-badge">Chatbots</span>
+                            <span class="skill-badge">BERT</span>
+                            <span class="skill-badge">LLM</span>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-category">
-                    <h4><i class="fas fa-eye"></i> Computer Vision</h4>
-                    <div>
-                        <span class="skill-badge">OpenCV</span>
-                        <span class="skill-badge">PyTorch</span>
-                        <span class="skill-badge">YOLOv5</span>
-                        <span class="skill-badge">Faster R-CNN</span>
-                        <span class="skill-badge">VGG-16</span>
+                    <div class="skill-category">
+                        <h4>Computer Vision</h4>
+                        <div>
+                            <span class="skill-badge">OpenCV</span>
+                            <span class="skill-badge">PyTorch</span>
+                            <span class="skill-badge">YOLOv5</span>
+                            <span class="skill-badge">Faster R-CNN</span>
+                            <span class="skill-badge">VGG-16</span>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-category">
-                    <h4><i class="fas fa-chart-bar"></i> Data Visualization</h4>
-                    <div>
-                        <span class="skill-badge">Power BI</span>
-                        <span class="skill-badge">Plotly</span>
+                    <div class="skill-category">
+                        <h4>Data Visualization</h4>
+                        <div>
+                            <span class="skill-badge">Power BI</span>
+                            <span class="skill-badge">Plotly</span>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-category">
-                    <h4><i class="fas fa-tools"></i> Other Tools</h4>
-                    <div>
-                        <span class="skill-badge">Regular Expressions</span>
-                        <span class="skill-badge">TF-IDF</span>
+                    <div class="skill-category">
+                        <h4>Other Tools</h4>
+                        <div>
+                            <span class="skill-badge">Regular Expressions</span>
+                            <span class="skill-badge">TF-IDF</span>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-category">
-                    <h4><i class="fas fa-project-diagram"></i> ML Models</h4>
-                    <div>
-                        <span class="skill-badge">Linear Regression</span>
-                        <span class="skill-badge">Logistic Regression</span>
-                        <span class="skill-badge">PCA</span>
-                        <span class="skill-badge">Random Forest</span>
+                    <div class="skill-category">
+                        <h4>ML Models</h4>
+                        <div>
+                            <span class="skill-badge">Linear Regression</span>
+                            <span class="skill-badge">Logistic Regression</span>
+                            <span class="skill-badge">PCA</span>
+                            <span class="skill-badge">Random Forest</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -657,7 +712,7 @@
 </section>
 
 <!-- Experience Timeline -->
-<section class="section bg-light" id="experience">
+<section class="section" id="experience">
     <div class="container">
         <div class="section-title" data-aos="fade-up">
             <h2>Professional Experience</h2>
@@ -725,7 +780,7 @@
                             <li class="mb-2"><strong>Vector Embeddings:</strong> Employs advanced embeddings for efficient document indexing. Facilitates rapid and relevant information retrieval to enhance response quality.</li>
                             <li><strong>Interactive Chat Interface:</strong> Features an intuitive web interface supporting dynamic user conversations with real-time chat history visualization.</li>
                         </ul>
-                        <a href="https://github.com/THIRUPUGAL-2003/Ai-project/blob/main/RAG.py" class="btn btn-outline-primary mt-3" target="_blank">View Code →</a>
+                        <a href="https://github.com/THIRUPUGAL-2003/Ai-project/blob/main/RAG.py" class="btn btn-outline-primary mt-3" target="_blank">View Code</a>
                     </div>
                 </div>
             </div>
@@ -751,7 +806,7 @@
                             <li class="mb-2"><strong>Performance:</strong> Built a hybrid model with improved emotion recognition accuracy on TESS dataset.</li>
                             <li><strong>Applications:</strong> Virtual assistants, mental health monitoring, interactive AI systems.</li>
                         </ul>
-                        <a href="https://github.com/THIRUPUGAL-2003/ML-DL-Projects" class="btn btn-outline-primary mt-3" target="_blank">GitHub Repo →</a>
+                        <a href="https://github.com/THIRUPUGAL-2003/ML-DL-Projects" class="btn btn-outline-primary mt-3" target="_blank">GitHub Repo</a>
                     </div>
                 </div>
             </div>
@@ -766,7 +821,7 @@
             <h2>Education</h2>
             <p>Strong foundation in Data Science and Mathematics</p>
         </div>
-        <div class="row g-4">
+        <div class="row g-4 justify-content-center">
             <div class="col-md-6" data-aos="zoom-in" data-aos-delay="100">
                 <div class="education-card">
                     <div class="icon">
@@ -801,7 +856,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
-                <div class="p-4 bg-white rounded-3 shadow-sm border">
+                <div class="p-4 bg-white rounded-3 shadow-sm border text-center">
                     <h5 class="mb-3">Clinical Data Analytics Workshop, Clinosol Research</h5>
                     <p>Gained hands-on experience in clinical data preprocessing, visualizations, and statistical analysis with industry-standard tools.</p>
                     <a href="https://clinosol.com/workshops/clinical-data-analytics" class="btn btn-outline-primary btn-sm mt-2" target="_blank">View Certificate</a>
@@ -864,11 +919,11 @@
             </div>
             <div class="col-lg-4 mb-4">
                 <h5>Connect</h5>
-                <p class="mb-1"><i class="fas fa-envelope me-2"></i>thirupugals2003@gmail.com</p>
-                <p class="mb-3"><i class="fas fa-phone me-2"></i>+91 9080578529</p>
+                <p class="mb-1">thirupugals2003@gmail.com</p>
+                <p class="mb-3">+91 9080578529</p>
                 <div class="social-links">
-                    <a href="https://linkedin.com/in/thirupugals" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/THIRUPUGAL-2003" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/thirupugals" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/THIRUPUGAL-2003" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                 </div>
             </div>
         </div>
@@ -879,7 +934,7 @@
 
 <!-- Floating Buttons -->
 <a href="RESUMES.pdf" download class="download-btn" title="Download Resume">
-    <i class="fas fa-download fa-lg"></i>
+    <i class="fas fa-download"></i>
 </a>
 <a href="#home" class="back-to-top" id="backToTop" title="Back to Top">
     <i class="fas fa-arrow-up"></i>
@@ -915,5 +970,4 @@
     });
 </script>
 </body>
-
-</html>
+</html> 
